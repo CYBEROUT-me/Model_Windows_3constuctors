@@ -283,3 +283,33 @@ void Model_Windows::SetBorder() {
 
     cout << endl;
 }
+
+
+
+Model_Windows Model_Windows::operator+(const Model_Windows& other) {
+    Model_Windows temp;
+    temp.horizontal_size = this->horizontal_size + other.horizontal_size;
+    temp.vertical_size = this->vertical_size + other.vertical_size;
+    temp.l_corner_coordinate_X = (this->l_corner_coordinate_X + other.l_corner_coordinate_X) / 2;
+    temp.l_corner_coordinate_Y = (this->l_corner_coordinate_Y + other.l_corner_coordinate_Y) / 2;
+    return temp;
+}
+
+
+bool Model_Windows::operator==(const Model_Windows& other) {
+    return (this->horizontal_size == other.horizontal_size && this->vertical_size == other.vertical_size);
+}
+
+
+Model_Windows& Model_Windows::operator=(const Model_Windows& other) {
+    if (this != &other) {
+        this->caption = other.caption;
+        this->l_corner_coordinate_X = other.l_corner_coordinate_X;
+        this->l_corner_coordinate_Y = other.l_corner_coordinate_Y;
+        this->horizontal_size = other.horizontal_size;
+        this->vertical_size = other.vertical_size;
+        this->visible = other.visible;
+        this->border = other.border;
+    }
+    return *this;
+}

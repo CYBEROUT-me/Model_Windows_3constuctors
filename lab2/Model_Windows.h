@@ -32,4 +32,10 @@ public:
 	void SetVisibility();
 
 	void SetBorder();
+
+
+	//lab4
+	Model_Windows operator+(const Model_Windows& other);
+	bool operator==(const Model_Windows& other);
+	Model_Windows& operator=(const Model_Windows& other);
 };
